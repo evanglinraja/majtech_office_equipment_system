@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Category{% endblock %}
+
+{% block content %}
+   <div>
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Add Category</h1>
+        <div class="row row-cols-sm-1 row-cols-md-2 gy-4 ">
+           
+            <div>
+                <label for="category_name">Category Name</label>
+                <input type="text" id="category_name" name="category_name" class="form-control"  required>
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea type="text" id="description" name="description" class="form-control"  required></textarea>
+            </div>
+            <div>
+               <button class="btn btn-success btn-gradient rounded-5 ps-5 pe-5"> Add Category</button>
+            </div>
+        </div>
+    </form>
+   </div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Maintenance{% endblock %}
+
+{% block content %}
+   <div>
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Add Maintenance</h1>
+        <div class="row row-cols-sm-1 row-cols-md-2 gy-4 ">
+           
+            <div>
+                <label for="equipment_id">Equipment</label>
+                <select id="equipment_id" name="equipment_id" class="form-select"  required>
+                    <option value="" disabled selected >Select Equipment</option>
+                    {% for equipment in equipments %}
+                        <option value="{{ equipment.equipment_id }}">{{equipment.equipment_name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div>
+                <label for="maintenance_date">Maintenancen Date</label>
+                <input type="date" id="maintenance_date" name="maintenance_date" class="form-control"  required>
+            </div>
+            <div>
+                <label for="maintenance_type">Maintenance Type</label>
+                 <select name="maintenance_type" id="maintenance_type" class="form-select" required>
+                    <option value="" disabled selected >Select Type</option>
+                    <option value="routine">Routine</option>
+                    <option value="repair">Repair</option>
+                    <option value="inspection">Inspection</option>
+                 </select>
+            </div>
+            <div>
+                <label for="description">Description</label>
+                <textarea  id="description" name="description" class="form-control"  required> </textarea>
+            </div>
+            <div>
+                <label for="cost">Cost</label>
+                <input type="number" id="cost" name="cost" class="form-control"  required>
+            </div>
+            <div>
+                <label for="performed_by">Performed By</label>
+                <input type="text" id="performed_by" name="performed_by" class="form-control"  required>
+            </div>
+            
+        </div>
+        <div class="mt-3">
+               <button class="btn btn-success btn-gradient rounded-5 ps-5 pe-5"> Add Maintenance</button>
+            </div>
+    </form>
+   </div>
+{% endblock %}
