@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'majtech_office_eqipment_system',
         'USER': 'root',
-        'PASSWORD': 'Evan@2001',
+        'PASSWORD': '******',
         'HOST': 'localhost',    
         'PORT': '3306',
     }
